@@ -23,8 +23,8 @@ jobs:
       #   env: 
       #     RUNNER_CONTEXT: ${{ toJson(runner) }}
       #   run: echo "$RUNNER_CONTEXT"
-
-name: for readme
+---
+name: Test input trigger for readme
 
 on:
   workflow_dispatch:
