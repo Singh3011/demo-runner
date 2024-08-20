@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: File contents
-        run: cat {{ inputs.FileName }}
+        run: cat ${{ inputs.FileName }}
 
       # - name: demo runner context
       #   env: 
