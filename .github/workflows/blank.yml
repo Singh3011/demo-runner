@@ -1,4 +1,4 @@
-name: Test input triggers
+name: Test input triggers for test file
 
 on:
   workflow_dispatch:
@@ -23,3 +23,28 @@ jobs:
       #   env: 
       #     RUNNER_CONTEXT: ${{ toJson(runner) }}
       #   run: echo "$RUNNER_CONTEXT"
+
+name: for readme
+
+on:
+  workflow_dispatch:
+    inputs:
+      FileName:
+        description: "To select the file"
+        type: choice
+        options:
+          - README.md
+
+jobs:
+  run-hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: File contents
+        run: cat ${{ inputs.FileName }}          
+
+          
+      
