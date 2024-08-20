@@ -8,9 +8,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
 
-      - name: Echo Hello World
-        run: echo "Hello, World!"
+      # - name: Echo Hello World
+      #   run: echo "Hello, World!"
 
+      - name: demo runner context
+        env: 
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
