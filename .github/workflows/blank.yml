@@ -1,29 +1,23 @@
-name: Test Event Filters
+name: Test input triggers
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - main
-    - '!feature/*' 
-  pull_request:
-    types:
-      - opened
-      - closed
-    paths-ignore:
-      - README.md
-    branches:
-      - main
+    inputs:
+      FileName:
+        description: "To select the file"
+        type: choice
+        options:
+          - test.txt
 jobs:
   run-hello-world:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Echo Hello World
-        run: echo "Hello, World!"
+      - name: File contents
+        run: cat {{ inputs.FileName }}
 
       # - name: demo runner context
       #   env: 
